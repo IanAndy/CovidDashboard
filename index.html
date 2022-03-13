@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="content-language" content="en-us">
+    <meta name="keywords" content="Covid Statistics, Value8Group, Health Care">
+    <meta name="author" content="Andrew Mwiti">
+    <title>Covid Dashboard</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/dataTables.css" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+
+</head>
+
+<body>
+
+    <!-- site-container -->
+    <div class="site-container">
+
+        <div class="py-3 py-sm-4 py-md-5 container">
+
+            <!-- btn-box -->
+            <div class="btn-box pb-4">
+                <button type="button" class="btn-period">Today</button>
+                <button type="button" class="btn-period active">This Week</button>
+                <button type="button" class="btn-period">This Month</button>
+                <button type="button" class="btn-period">This Year</button>
+            </div>
+            <!-- btn-box -->
+
+            <!-- header-section -->
+            <section class="header-section mb-4">
+                <div class="header-inner py-5 px-4 p-xxl-5">
+                    <img src="img/logo.svg" alt="Health Care">
+                </div>
+                <div class="header-inner py-2 px-4">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <h2 class="header-small mb-2">Total Tested</h2>
+                            <h3 class="header-number">171,897</h3>
+                        </div>
+                        <div class="col-xl-6">
+                            <canvas id="chart"></canvas>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="header-stats">
+                                <div class="header-col">
+                                    <p>
+                                        <span>Travel</span>
+                                        <span>123,932</span>
+                                    </p>
+                                </div>
+                                <div class="header-col">
+                                    <p>
+                                        <span>Screening</span>
+                                        <span>123,932</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-inner py-2 px-4">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <h2 class="header-small mb-2">Citizens Tested</h2>
+                            <h3 class="header-number">21,897</h3>
+                        </div>
+                        <div class="col-xl-6">
+                            <canvas id="chart1"></canvas>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="header-stats">
+                                <div class="header-col header-color">
+                                    <p>
+                                        <span class="postive">Positive</span>
+                                        <span>123,932</span>
+                                    </p>
+                                </div>
+                                <div class="header-col header-color">
+                                    <p>
+                                        <span class="negative">Negative</span>
+                                        <span>123,932</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-inner py-2 px-4">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <h2 class="header-small mb-2">Foreigners Tested</h2>
+                            <h3 class="header-number">150,097</h3>
+                        </div>
+                        <div class="col-xl-6">
+                            <canvas id="chart2"></canvas>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="header-stats">
+                                <div class="header-col header-color">
+                                    <p>
+                                        <span class="postive">Positive</span>
+                                        <span>123,932</span>
+                                    </p>
+                                </div>
+                                <div class="header-col header-color">
+                                    <p>
+                                        <span class="negative">Negative</span>
+                                        <span>123,932</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- header-section -->
+
+            <!-- lower-header-section -->
+            <section class="lower-header-section mb-4">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="lower-card">
+                            <div class="lower-upper px-4 py-4">
+                                <div class="lower-icon mr-4">
+                                    <img src="img/content-img/stats-icons/Icon.svg" alt="">
+                                </div>
+                                <div class="lower-content">
+                                    <p class="text mb-2">Registered Labs</p>
+                                    <div class="lower-text">
+                                        <P class="number mr-3">20</P>
+                                        <div class="trend">
+                                            <img src="img/content-img/stats-icons/arrow-up.svg" class="mr-1" alt="">
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lower-lower py-3 py-xl-4 px-4 match-height">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="lower-card">
+                            <div class="lower-upper px-4 py-4">
+                                <div class="lower-icon mr-4">
+                                    <img src="img/content-img/stats-icons/plus-circle.svg" alt="">
+                                </div>
+                                <div class="lower-content">
+                                    <p class="text mb-2">Positive Cases</p>
+                                    <div class="lower-text">
+                                        <P class="number mr-3">2,450</P>
+                                        <div class="trend">
+                                            <img src="img/content-img/stats-icons/arrow-up.svg" class="mr-1" alt="">
+                                            <span>5.4%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lower-lower py-3 py-xl-4 px-4 match-height">
+                                <p>
+                                    <span class="text">Males:</span>
+                                    <span>1,932</span>
+                                </p>
+                                <p>
+                                    <span class="text">Females:</span>
+                                    <span>1,932</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="lower-card">
+                            <div class="lower-upper px-4 py-4">
+                                <div class="lower-icon mr-4">
+                                    <img src="img/content-img/stats-icons/minus-circle.svg" alt="">
+                                </div>
+                                <div class="lower-content">
+                                    <p class="text mb-2">Negative Cases</p>
+                                    <div class="lower-text">
+                                        <P class="number mr-3">93,425</P>
+                                        <div class="trend">
+                                            <img src="img/content-img/stats-icons/arrow-up.svg" class="mr-1" alt="">
+                                            <span>6.2%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lower-lower py-3 py-xl-4 px-4 match-height">
+                                <p>
+                                    <span class="text">Males:</span>
+                                    <span>42,054</span>
+                                </p>
+                                <p>
+                                    <span class="text">Females:</span>
+                                    <span>51,572</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- lower-header-section -->
+
+            <!-- maps-section -->
+            <section class="maps-section mb-4">
+                <div class="row">
+                    <div class="col-md-6 col-xl-8">
+                        <div class="maps-box match-height">
+                            <div class="map-title py-3">
+                                <h3>Covid-19 Positive Cases by County</h3>
+                            </div>
+                            <div id="map-container" style="height: 490px; min-width: 310px; max-width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="table-box match-height">
+                            <div class="table-title py-3">
+                                <h3>States Leader board</h3>
+                            </div>
+                            <table id="table_1" class="display table2">
+                                <thead>
+                                    <tr>
+                                        <th>COUNTY</th>
+                                        <th>Positive cases</th>
+                                        <th>NEGATIVE CASES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Nairobi County</td>
+                                        <td>20,502</td>
+                                        <td>3,304</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mombasa County</td>
+                                        <td>134</td>
+                                        <td>1,994</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wajir County</td>
+                                        <td>245</td>
+                                        <td>1,317</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Homabay County</td>
+                                        <td>52</td>
+                                        <td>134</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Migori County</td>
+                                        <td>134</td>
+                                        <td>1,994</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mandera County</td>
+                                        <td>134</td>
+                                        <td>1,245</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kiambu County</td>
+                                        <td>134</td>
+                                        <td>1,994</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kajiado County</td>
+                                        <td>2,145</td>
+                                        <td>22,983</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Narok County</td>
+                                        <td>13</td>
+                                        <td>152</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- maps-section -->
+
+            <!-- lab-section -->
+            <section class="lab-section">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="table-box match-height">
+                            <div class="table-title py-3">
+                                <h3>Laboratories Leader board</h3>
+                            </div>
+                            <table id="table_2" class="display table2">
+                                <thead>
+                                    <tr>
+                                        <th>Laboratory</th>
+                                        <th>TOTAL Tests</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Karis Laboratories</td>
+                                        <td>2,780</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emu Laboratories</td>
+                                        <td>20,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sandhu Laboratories</td>
+                                        <td>6,700</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mikaa Laboratories</td>
+                                        <td>1340</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Healthy Laboratories</td>
+                                        <td>1,994</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jakea Laboratories</td>
+                                        <td>1,995</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jakea Laboratories</td>
+                                        <td>1,995</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-8">
+                        <div class="covid-box match-height">
+                            <div class="table-title py-3">
+                                <h3>Laboratories Leader board</h3>
+                            </div>
+                            <div class="px-3">
+                                <canvas id="casesChart" width="400" height="400"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- lab-section -->
+        </div>
+
+    </div>
+    <!-- site-ontainer -->
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.matchHeight.js" type="text/javascript"></script>
+    <script src="js/chart.dist.js" type="text/javascript"></script>
+    <script src="js/chart.js" type="text/javascript"></script>
+    <script src="js/dataTables.js" type="text/javascript"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/ke/ke-all.js"></script>
+    <script>
+        var mapData = Highcharts.geojson(Highcharts.maps['countries/ke/ke-all']);
+        $('#map-container').highcharts('Map', {
+            chart: {
+                marginTop: 50,
+                marginBottom: 50
+            },
+            title: {
+                text: ''
+            },
+            legend: {
+                enabled: false
+            },
+            mapNavigation: {
+                enabled: true,
+                enableMouseWheelZoom: false,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+            series: [{
+                name: 'Departamentos',
+                mapData: mapData,
+                nullColor: '#E5ECF4',
+                enableMouseTracking: true
+            }, {
+                type: 'mapbubble',
+                mapData: mapData,
+                name: 'Covid-19 Positive Cases by  County',
+                color: 'red',
+                states: {
+                    hover: {
+                        stroke: 'yellow'
+                    }
+                },
+                joinBy: 'hc-key',
+                data: [{
+                    "hc-key": "ke-co",
+                    "z": 10,
+                    name: "Point1",
+                    color: "#D13F4A"
+                }, {
+                    "hc-key": 'ke-ce',
+                    "z": 40,
+                    name: "Point1",
+                    color: "#D13F4A"
+                }, {
+                    "hc-key": 'ke-na',
+                    "z": 15,
+                    name: "Point1",
+                    color: "#D13F4A"
+                }, {
+                    "hc-key": 'ke-565',
+                    "z": 50,
+                    name: "Point1",
+                    color: "#D13F4A"
+                }, {
+                    "hc-key": 'ke-rv',
+                    "z": 60,
+                    name: "Point1",
+                    color: "#D13F4A"
+                }, {
+                    "hc-key": 'ke-we',
+                    "z": 10,
+                    name: "Point1",
+                    color: "#D13F4A"
+                }, {
+                    "hc-key": 'ke-ne',
+                    "z": 9,
+                    name: "Point1",
+                    color: "#D13F4A"
+                }],
+                minSize: 15,
+                maxSize: 85,
+                tooltip: {
+                    pointFormat: '{point.name}: {point.name:,.0f} ({point.z}K)'
+                },
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.z}K'
+                }
+            }],
+        });
+    </script>
+
+    <script src="js/main.js" type="text/javascript "></script>
+
+</body>
+
+</html>
