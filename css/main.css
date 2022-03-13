@@ -3090,9 +3090,9 @@ body {
 .header-section .header-inner .header-stats .header-col span.postive {
     color: #D13F4A;
     font-weight: 600;
-    padding: 1px 8px 1px 19px;
+    padding: 0px 8px 0px 17px;
     background: #d13f4a75;
-    line-height: 18px;
+    line-height: 15px;
     position: relative;
     border-radius: 20px;
 }
@@ -3100,9 +3100,9 @@ body {
 .header-section .header-inner .header-stats .header-col span.postive::after {
     content: "";
     display: block;
-    top: 3.5px;
-    height: 13px;
-    width: 13px;
+    top: 1.5px;
+    height: 11px;
+    width: 11px;
     border: 3px solid #D13F4A;
     border-radius: 50%;
     bottom: 0px;
@@ -3116,9 +3116,9 @@ body {
 .header-section .header-inner .header-stats .header-col span.negative {
     color: #83B435;
     font-weight: 600;
-    padding: 1px 8px 1px 19px;
+    padding: 0px 8px 0px 17px;
     background: #83b4354d;
-    line-height: 18px;
+    line-height: 15px;
     position: relative;
     border-radius: 20px;
 }
@@ -3126,9 +3126,9 @@ body {
 .header-section .header-inner .header-stats .header-col span.negative::after {
     content: "";
     display: block;
-    top: 3.5px;
-    height: 13px;
-    width: 13px;
+    top: 1.5px;
+    height: 11px;
+    width: 11px;
     border: 3px solid #83B435;
     border-radius: 50%;
     bottom: 0px;
@@ -3307,6 +3307,9 @@ body {
 @media only screen and (max-width: 992px) {
     .lower-header-section .lower-card {
         margin-bottom: 30px;
+    }
+    .lower-header-section .col-sm-6:last-child .lower-card {
+        margin-bottom: 10px;
     }
 }
 
